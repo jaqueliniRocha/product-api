@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jjcompany.productapi.model.Product;
 import com.jjcompany.productapi.model.ProductRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin
 @RestController
 public class ProductController {
 
