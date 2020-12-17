@@ -44,12 +44,13 @@ public class ProductController {
 	
 	
 	@PutMapping("/product/{id}")
-	Product replaceProduct(@RequestBody Product newProduct, @PathVariable Long id) {
+	Product replaceProduct(@RequestBody final Product newProduct, @PathVariable Long id) {
 		return repository.findById(id)
 				.map(product -> {
 					product.setName(newProduct.getName());
 					product.setFlavor(newProduct.getFlavor());
 					product.setPrice(newProduct.getPrice());
+					product.setBrand(newProduct.getBrand());
 					return repository.save(product);
 				})
 				.orElseGet(() -> {
